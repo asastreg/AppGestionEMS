@@ -9,6 +9,16 @@ namespace AppGestionEMS.Models
     // Para agregar datos de perfil del usuario, agregue más propiedades a su clase ApplicationUser. Visite https://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
     {
+        //nombre -> UserName
+        //email -> Email
+        //contraseña -> PasswordHash
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Matricula { get; set; }
+        public string DNI { get; set; }
+        public string Role { get; set; }
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Tenga en cuenta que el valor de authenticationType debe coincidir con el definido en CookieAuthenticationOptions.AuthenticationType
@@ -29,5 +39,7 @@ namespace AppGestionEMS.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AppGestionEMS.Models.Cursos> Cursos { get; set; }
     }
 }
