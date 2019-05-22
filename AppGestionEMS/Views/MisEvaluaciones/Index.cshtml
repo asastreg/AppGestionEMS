@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AppGestionEMS.Models.Evaluaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Curso.Curso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupo.Grupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Evalu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_Pr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_Ev_C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_P1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_P2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_P3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_P4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota_Final)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Curso.Curso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grupo.Grupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Evalu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_Pr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_Ev_C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_P1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_P2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_P3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_P4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota_Final)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>

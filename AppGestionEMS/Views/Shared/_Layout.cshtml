@@ -21,15 +21,16 @@
                 @Html.ActionLink("AppGestiónEMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                    <li>@Html.ActionLink("Grupos", "Index", "Grupos")</li>
-                    <li>@Html.ActionLink("Asignacion Docente", "Index", "AsignacionDocentes")</li>
-                    <li>@Html.ActionLink("Matriculas", "Index", "Matriculas")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
+				<ul class="nav navbar-nav">
+					<li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+					<li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+					<li>@Html.ActionLink("Grupos", "Index", "Grupos")</li>
+					<li>@Html.ActionLink("Asignacion Docente", "Index", "AsignacionDocentes")</li>
+					<li>@Html.ActionLink("Matriculas", "Index", "Matriculas")</li>
+					<li>@Html.ActionLink("Evaluaciones", "Index", "Evaluaciones")</li>
+					<li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+					<li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+				</ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -38,7 +39,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - AppGestiónEMS ASP.NET</p>
         </footer>
     </div>
 
