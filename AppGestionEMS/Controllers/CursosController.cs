@@ -36,8 +36,9 @@ namespace AppGestionEMS.Controllers
             return View(cursos);
         }
 
-        // GET: Cursos/Create
-        public ActionResult Create()
+		// GET: Cursos/Create
+		[Authorize(Roles = "admin")]
+		public ActionResult Create()
         {
             return View();
         }
@@ -59,8 +60,9 @@ namespace AppGestionEMS.Controllers
             return View(cursos);
         }
 
-        // GET: Cursos/Edit/5
-        public ActionResult Edit(int? id)
+		// GET: Cursos/Edit/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -90,8 +92,9 @@ namespace AppGestionEMS.Controllers
             return View(cursos);
         }
 
-        // GET: Cursos/Delete/5
-        public ActionResult Delete(int? id)
+		// GET: Cursos/Delete/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Delete(int? id)
         {
             if (id == null)
             {

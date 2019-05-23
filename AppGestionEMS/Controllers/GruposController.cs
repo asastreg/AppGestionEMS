@@ -10,7 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
-    [Authorize(Roles = "admin, alumno")]
+    [Authorize(Roles = "admin, alumno, profesor")]
     public class GruposController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,8 +36,9 @@ namespace AppGestionEMS.Controllers
             return View(grupos);
         }
 
-        // GET: Grupos/Create
-        public ActionResult Create()
+		// GET: Grupos/Create
+		[Authorize(Roles = "admin")]
+		public ActionResult Create()
         {
             return View();
         }
@@ -60,8 +61,9 @@ namespace AppGestionEMS.Controllers
             return View(grupos);
         }
 
-        // GET: Grupos/Edit/5
-        public ActionResult Edit(int? id)
+		// GET: Grupos/Edit/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -91,8 +93,9 @@ namespace AppGestionEMS.Controllers
             return View(grupos);
         }
 
-        // GET: Grupos/Delete/5
-        public ActionResult Delete(int? id)
+		// GET: Grupos/Delete/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Delete(int? id)
         {
             if (id == null)
             {
