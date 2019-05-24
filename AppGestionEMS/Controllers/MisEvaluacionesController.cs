@@ -19,7 +19,7 @@ namespace AppGestionEMS.Controllers
         // GET: MisEvaluaciones
         public ActionResult Index()
         {
-			string currentUserId = User.Identity.GetUserId();
+                      string currentUserId = User.Identity.GetUserId();
 			var evaluaciones = db.Evaluaciones.Include(e => e.Curso).Include(e => e.Grupo).Include(e => e.User).Where(p => p.UserId == currentUserId);
             return View(evaluaciones.ToList());
         }

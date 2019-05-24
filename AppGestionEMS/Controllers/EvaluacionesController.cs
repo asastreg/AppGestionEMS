@@ -40,9 +40,14 @@ namespace AppGestionEMS.Controllers
         // GET: Evaluaciones/Create
         public ActionResult Create()
         {
+            var alumnos = from user in db.Users
+                             from u_r in user.Roles
+                             join rol in db.Roles on u_r.RoleId equals rol.Id
+                             where rol.Name == "alumno"
+                             select user.UserName;
             ViewBag.CursoId = new SelectList(db.Cursos, "Id", "Curso");
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Grupo");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users.Where(u => alumnos.Contains(u.UserName)), "Id", "Name");
             return View();
         }
 
