@@ -10,6 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
+	[Authorize(Roles = "admin, profesor, alumno")]
     public class ProfesoresController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -35,8 +36,9 @@ namespace AppGestionEMS.Controllers
             return View(applicationUser);
         }
 
-        // GET: Profesores/Create
-        public ActionResult Create()
+		// GET: Profesores/Create
+		[Authorize(Roles = "admin")]
+		public ActionResult Create()
         {
             return View();
         }
@@ -58,8 +60,9 @@ namespace AppGestionEMS.Controllers
             return View(applicationUser);
         }
 
-        // GET: Profesores/Edit/5
-        public ActionResult Edit(string id)
+		// GET: Profesores/Edit/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -89,8 +92,9 @@ namespace AppGestionEMS.Controllers
             return View(applicationUser);
         }
 
-        // GET: Profesores/Delete/5
-        public ActionResult Delete(string id)
+		// GET: Profesores/Delete/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Delete(string id)
         {
             if (id == null)
             {
