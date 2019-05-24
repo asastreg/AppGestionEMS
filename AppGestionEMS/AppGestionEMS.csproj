@@ -184,6 +184,7 @@
     <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="Controllers\MisEvaluacionesController.cs" />
     <Compile Include="Controllers\ProfesoresController.cs" />
+    <Compile Include="Controllers\SolicitudesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,10 @@
     <Compile Include="Migrations\201905221639507_CreateEvaluaciones.Designer.cs">
       <DependentUpon>201905221639507_CreateEvaluaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905241713157_CreateSolicitudes.cs" />
+    <Compile Include="Migrations\201905241713157_CreateSolicitudes.Designer.cs">
+      <DependentUpon>201905241713157_CreateSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AsignacionDocentes.cs" />
@@ -220,6 +225,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Matriculas.cs" />
+    <Compile Include="Models\Solicitudes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -319,6 +325,11 @@
     <Content Include="Views\Alumnos\Details.cshtml" />
     <Content Include="Views\Alumnos\Edit.cshtml" />
     <Content Include="Views\Alumnos\Index.cshtml" />
+    <Content Include="Views\Solicitudes\Create.cshtml" />
+    <Content Include="Views\Solicitudes\Delete.cshtml" />
+    <Content Include="Views\Solicitudes\Details.cshtml" />
+    <Content Include="Views\Solicitudes\Edit.cshtml" />
+    <Content Include="Views\Solicitudes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905221639507_CreateEvaluaciones.resx">
       <DependentUpon>201905221639507_CreateEvaluaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241713157_CreateSolicitudes.resx">
+      <DependentUpon>201905241713157_CreateSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
