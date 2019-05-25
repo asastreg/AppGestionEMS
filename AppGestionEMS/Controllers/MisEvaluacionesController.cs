@@ -25,13 +25,13 @@ namespace AppGestionEMS.Controllers
         }
 
         // GET: MisEvaluaciones/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evaluaciones evaluaciones = db.Evaluaciones.Find(id);
+            Evaluaciones evaluaciones = db.Evaluaciones.Find(id, user, curso, grupo);
             if (evaluaciones == null)
             {
                 return HttpNotFound();

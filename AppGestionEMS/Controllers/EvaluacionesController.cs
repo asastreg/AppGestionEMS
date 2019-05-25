@@ -23,13 +23,13 @@ namespace AppGestionEMS.Controllers
         }
 
         // GET: Evaluaciones/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evaluaciones evaluaciones = db.Evaluaciones.Find(id);
+            Evaluaciones evaluaciones = db.Evaluaciones.Find(id, user, curso, grupo);
             if (evaluaciones == null)
             {
                 return HttpNotFound();
@@ -72,13 +72,13 @@ namespace AppGestionEMS.Controllers
         }
 
         // GET: Evaluaciones/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evaluaciones evaluaciones = db.Evaluaciones.Find(id);
+            Evaluaciones evaluaciones = db.Evaluaciones.Find(id, user, curso, grupo);
             if (evaluaciones == null)
             {
                 return HttpNotFound();
@@ -109,13 +109,13 @@ namespace AppGestionEMS.Controllers
         }
 
         // GET: Evaluaciones/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Evaluaciones evaluaciones = db.Evaluaciones.Find(id);
+            Evaluaciones evaluaciones = db.Evaluaciones.Find(id, user, curso, grupo);
             if (evaluaciones == null)
             {
                 return HttpNotFound();
@@ -126,9 +126,9 @@ namespace AppGestionEMS.Controllers
         // POST: Evaluaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id, string user, int? curso, int? grupo)
         {
-            Evaluaciones evaluaciones = db.Evaluaciones.Find(id);
+            Evaluaciones evaluaciones = db.Evaluaciones.Find(id, user, curso, grupo);
             db.Evaluaciones.Remove(evaluaciones);
             db.SaveChanges();
             return RedirectToAction("Index");

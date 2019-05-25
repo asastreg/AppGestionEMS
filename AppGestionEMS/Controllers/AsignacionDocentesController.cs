@@ -10,7 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin, profesor, alumno")]
     public class AsignacionDocentesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -22,14 +22,15 @@ namespace AppGestionEMS.Controllers
             return View(asignacionDocentes.ToList());
         }
 
-        // GET: AsignacionDocentes/Details/5
-        public ActionResult Details(string id)
+		// GET: AsignacionDocentes/Details/5
+		[Authorize(Roles = "admin, profesor, alumno")]
+		public ActionResult Details(int? curso, int? grupo, string user)
         {
-            if (id == null)
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(id);
+            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(user, curso, grupo);
             if (asignacionDocentes == null)
             {
                 return HttpNotFound();
@@ -37,8 +38,9 @@ namespace AppGestionEMS.Controllers
             return View(asignacionDocentes);
         }
 
-        // GET: AsignacionDocentes/Create
-        public ActionResult Create()
+		// GET: AsignacionDocentes/Create
+		[Authorize(Roles = "admin")]
+		public ActionResult Create()
         {
             var profesores = from user in db.Users
                              from u_r in user.Roles
@@ -71,14 +73,15 @@ namespace AppGestionEMS.Controllers
             return View(asignacionDocentes);
         }
 
-        // GET: AsignacionDocentes/Edit/5
-        public ActionResult Edit(string id)
+		// GET: AsignacionDocentes/Edit/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Edit(int? curso, int? grupo, string user)
         {
-            if (id == null)
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(id);
+            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(user, curso, grupo);
             if (asignacionDocentes == null)
             {
                 return HttpNotFound();
@@ -108,14 +111,15 @@ namespace AppGestionEMS.Controllers
             return View(asignacionDocentes);
         }
 
-        // GET: AsignacionDocentes/Delete/5
-        public ActionResult Delete(int? curso, int? grupo, string id)
+		// GET: AsignacionDocentes/Delete/5
+		[Authorize(Roles = "admin")]
+		public ActionResult Delete(int? curso, int? grupo, string user)
         {
-            if (curso == null || grupo == null || id == null)
+            if (curso == null || grupo == null ||user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(id, curso, grupo);
+            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(user, curso, grupo);
             if (asignacionDocentes == null)
             {
                 return HttpNotFound();
@@ -126,9 +130,9 @@ namespace AppGestionEMS.Controllers
         // POST: AsignacionDocentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int curso, int grupo, string id)
+        public ActionResult DeleteConfirmed(int curso, int grupo, string user)
         {
-            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(id, curso, grupo);
+            AsignacionDocentes asignacionDocentes = db.AsignacionDocentes.Find(user, curso, grupo);
             db.AsignacionDocentes.Remove(asignacionDocentes);
             db.SaveChanges();
             return RedirectToAction("Index");

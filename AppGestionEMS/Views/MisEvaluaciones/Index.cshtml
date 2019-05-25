@@ -80,9 +80,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Nota_Final)
         </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        </td>
+		<td>
+			@Html.ActionLink("Details", "Details", new { id = item.Id, user = item.UserId, curso = item.CursoId, grupo = item.GrupoId }) 
+		</td>
     </tr>
     }
 }
