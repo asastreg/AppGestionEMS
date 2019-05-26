@@ -10,7 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
-    [Authorize(Roles = "admin, alumno")]
+    [Authorize(Roles = "admin, alumno, profesor")]
     public class CursosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
