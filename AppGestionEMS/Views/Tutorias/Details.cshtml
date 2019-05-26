@@ -1,0 +1,42 @@
+﻿@model AppGestionEMS.Models.Tutorias
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tutorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.Curso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Curso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Practica.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Practica.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+	<!--@Html.ActionLink("Edit", "Edit", new { user = Model.UserId, curso = Model.CursoId, practica = Model.PracticaId  }) |-->
+	@Html.ActionLink("Back to List", "Index")
+</p>

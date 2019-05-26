@@ -769,3 +769,4 @@ C:\Users\alber\Desktop\EMS\AppGestionEMS\AppGestionEMS\obj\Debug\AppGestionEMS.c
 C:\Users\alber\Desktop\EMS\AppGestionEMS\AppGestionEMS\obj\Debug\AppGestionEMS.dll
 C:\Users\alber\Desktop\EMS\AppGestionEMS\AppGestionEMS\obj\Debug\AppGestionEMS.pdb
 C:\Users\alber\Desktop\AppGestionEMS\AppGestionEMS\obj\Debug\AppGestionEMS.Migrations.CreatePracticas.resources
+C:\Users\alber\Desktop\AppGestionEMS\AppGestionEMS\obj\Debug\AppGestionEMS.Migrations.CreateTutorias.resources

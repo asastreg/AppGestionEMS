@@ -186,6 +186,7 @@
     <Compile Include="Controllers\PracticasController.cs" />
     <Compile Include="Controllers\ProfesoresController.cs" />
     <Compile Include="Controllers\SolicitudesController.cs" />
+    <Compile Include="Controllers\TutoriasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +222,10 @@
     <Compile Include="Migrations\201905260751232_CreatePracticas.Designer.cs">
       <DependentUpon>201905260751232_CreatePracticas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905260800361_CreateTutorias.cs" />
+    <Compile Include="Migrations\201905260800361_CreateTutorias.Designer.cs">
+      <DependentUpon>201905260800361_CreateTutorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AsignacionDocentes.cs" />
@@ -232,6 +237,7 @@
     <Compile Include="Models\Matriculas.cs" />
     <Compile Include="Models\Practicas.cs" />
     <Compile Include="Models\Solicitudes.cs" />
+    <Compile Include="Models\Tutorias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -344,6 +350,11 @@
     <Content Include="Views\Practicas\Details.cshtml" />
     <Content Include="Views\Practicas\Edit.cshtml" />
     <Content Include="Views\Practicas\Index.cshtml" />
+    <Content Include="Views\Tutorias\Create.cshtml" />
+    <Content Include="Views\Tutorias\Delete.cshtml" />
+    <Content Include="Views\Tutorias\Details.cshtml" />
+    <Content Include="Views\Tutorias\Edit.cshtml" />
+    <Content Include="Views\Tutorias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905260751232_CreatePracticas.resx">
       <DependentUpon>201905260751232_CreatePracticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905260800361_CreateTutorias.resx">
+      <DependentUpon>201905260800361_CreateTutorias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

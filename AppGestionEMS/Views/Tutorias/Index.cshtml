@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AppGestionEMS.Models.Tutorias>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Curso.Curso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Practica.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Curso.Curso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Practica.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+		<td>
+			<!--@Html.ActionLink("Edit", "Edit", new { user = item.UserId, curso = item.CursoId, practica = item.PracticaId }) |-->
+			@Html.ActionLink("Details", "Details", new { user = item.UserId, curso = item.CursoId, practica = item.PracticaId }) |
+			@Html.ActionLink("Delete", "Delete", new { user = item.UserId, curso = item.CursoId, practica = item.PracticaId })
+		</td>
+    </tr>
+}
+
+</table>
