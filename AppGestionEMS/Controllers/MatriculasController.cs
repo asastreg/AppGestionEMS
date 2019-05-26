@@ -10,7 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
-    [Authorize(Roles = "profesor")]
+    [Authorize(Roles = "profesor, admin")]
     public class MatriculasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -23,13 +23,13 @@ namespace AppGestionEMS.Controllers
         }
 
         // GET: Matriculas/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(string user, int? curso, int? grupo, string id)
         {
-            if (id == null)
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Matriculas matriculas = db.Matriculas.Find(id);
+            Matriculas matriculas = db.Matriculas.Find(user, curso, grupo, id);
             if (matriculas == null)
             {
                 return HttpNotFound();
@@ -37,12 +37,18 @@ namespace AppGestionEMS.Controllers
             return View(matriculas);
         }
 
-        // GET: Matriculas/Create
-        public ActionResult Create()
+		// GET: Matriculas/Create
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Create()
         {
-            ViewBag.CursoId = new SelectList(db.Cursos, "Id", "Curso");
+			var alumnos = from user in db.Users
+						  from u_r in user.Roles
+						  join rol in db.Roles on u_r.RoleId equals rol.Id
+						  where rol.Name == "alumno"
+						  select user.UserName;
+			ViewBag.CursoId = new SelectList(db.Cursos, "Id", "Curso");
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Grupo");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users.Where(u => alumnos.Contains(u.UserName)), "Id", "Name");
             return View();
         }
 
@@ -66,14 +72,15 @@ namespace AppGestionEMS.Controllers
             return View(matriculas);
         }
 
-        // GET: Matriculas/Edit/5
-        public ActionResult Edit(string id)
+		// GET: Matriculas/Edit/5
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Edit(string user, int? curso, int? grupo, string id)
         {
-            if (id == null)
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Matriculas matriculas = db.Matriculas.Find(id);
+            Matriculas matriculas = db.Matriculas.Find(user, curso, grupo, id);
             if (matriculas == null)
             {
                 return HttpNotFound();
@@ -103,14 +110,15 @@ namespace AppGestionEMS.Controllers
             return View(matriculas);
         }
 
-        // GET: Matriculas/Delete/5
-        public ActionResult Delete(string id)
+		// GET: Matriculas/Delete/5
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Delete(string user, int? curso, int? grupo, string id)
         {
-            if (id == null)
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Matriculas matriculas = db.Matriculas.Find(id);
+            Matriculas matriculas = db.Matriculas.Find(user, curso, grupo, id);
             if (matriculas == null)
             {
                 return HttpNotFound();
@@ -121,9 +129,9 @@ namespace AppGestionEMS.Controllers
         // POST: Matriculas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(string user, int? curso, int? grupo, string id)
         {
-            Matriculas matriculas = db.Matriculas.Find(id);
+            Matriculas matriculas = db.Matriculas.Find(user, curso, grupo, id);
             db.Matriculas.Remove(matriculas);
             db.SaveChanges();
             return RedirectToAction("Index");

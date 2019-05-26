@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.User.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <!--@Html.ActionLink("Edit", "Edit", new { user = item.UserId, curso = item.CursoId, grupo = item.GrupoId, id = item.Id }) |-->
+            @Html.ActionLink("Details", "Details", new { user = item.UserId, curso = item.CursoId, grupo = item.GrupoId, id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { user = item.UserId, curso = item.CursoId, grupo = item.GrupoId, id = item.Id })
         </td>
     </tr>
 }
