@@ -10,7 +10,7 @@ using AppGestionEMS.Models;
 
 namespace AppGestionEMS.Controllers
 {
-	[Authorize(Roles = "profesor")]
+	[Authorize(Roles = "profesor, admin")]
 	public class EvaluacionesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -22,8 +22,9 @@ namespace AppGestionEMS.Controllers
             return View(evaluaciones.ToList());
         }
 
-        // GET: Evaluaciones/Details/5
-        public ActionResult Details(int? id, string user, int? curso, int? grupo)
+		// GET: Evaluaciones/Details/5
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Details(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
@@ -37,8 +38,9 @@ namespace AppGestionEMS.Controllers
             return View(evaluaciones);
         }
 
-        // GET: Evaluaciones/Create
-        public ActionResult Create()
+		// GET: Evaluaciones/Create
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Create()
         {
             var alumnos = from user in db.Users
                              from u_r in user.Roles
@@ -71,8 +73,9 @@ namespace AppGestionEMS.Controllers
             return View(evaluaciones);
         }
 
-        // GET: Evaluaciones/Edit/5
-        public ActionResult Edit(int? id, string user, int? curso, int? grupo)
+		// GET: Evaluaciones/Edit/5
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Edit(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
@@ -108,8 +111,9 @@ namespace AppGestionEMS.Controllers
             return View(evaluaciones);
         }
 
-        // GET: Evaluaciones/Delete/5
-        public ActionResult Delete(int? id, string user, int? curso, int? grupo)
+		// GET: Evaluaciones/Delete/5
+		[Authorize(Roles = "profesor, admin")]
+		public ActionResult Delete(int? id, string user, int? curso, int? grupo)
         {
             if (id == null)
             {
