@@ -52,5 +52,7 @@ namespace AppGestionEMS.Models
 		public System.Data.Entity.DbSet<AppGestionEMS.Models.Evaluaciones> Evaluaciones { get; set; }
 
 		public System.Data.Entity.DbSet<AppGestionEMS.Models.Solicitudes> Solicitudes { get; set; }
+
+		public System.Data.Entity.DbSet<AppGestionEMS.Models.Practicas> Practicas { get; set; }
 	}
 }

@@ -183,6 +183,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="Controllers\MisEvaluacionesController.cs" />
+    <Compile Include="Controllers\PracticasController.cs" />
     <Compile Include="Controllers\ProfesoresController.cs" />
     <Compile Include="Controllers\SolicitudesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,6 +217,10 @@
     <Compile Include="Migrations\201905241713157_CreateSolicitudes.Designer.cs">
       <DependentUpon>201905241713157_CreateSolicitudes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905260751232_CreatePracticas.cs" />
+    <Compile Include="Migrations\201905260751232_CreatePracticas.Designer.cs">
+      <DependentUpon>201905260751232_CreatePracticas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AsignacionDocentes.cs" />
@@ -225,6 +230,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Matriculas.cs" />
+    <Compile Include="Models\Practicas.cs" />
     <Compile Include="Models\Solicitudes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -333,6 +339,11 @@
     <Content Include="Views\Solicitudes\Details.cshtml" />
     <Content Include="Views\Solicitudes\Edit.cshtml" />
     <Content Include="Views\Solicitudes\Index.cshtml" />
+    <Content Include="Views\Practicas\Create.cshtml" />
+    <Content Include="Views\Practicas\Delete.cshtml" />
+    <Content Include="Views\Practicas\Details.cshtml" />
+    <Content Include="Views\Practicas\Edit.cshtml" />
+    <Content Include="Views\Practicas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905241713157_CreateSolicitudes.resx">
       <DependentUpon>201905241713157_CreateSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905260751232_CreatePracticas.resx">
+      <DependentUpon>201905260751232_CreatePracticas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
